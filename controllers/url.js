@@ -32,6 +32,7 @@ exports.shortUrl = async (req, res) => {
   const url = new Url({ originalUrl, shortUrl });
   await url.save();
 
+  // adding urls in user schema
   await User.findByIdAndUpdate(
     decode._id,
     { $addToSet: { urls: shortUrl } },
@@ -54,6 +55,3 @@ exports.redirectUrl = async (req, res) => {
   // Redirect the user to the original URL
   return res.redirect(url.originalUrl);
 };
-// check in cache
-/// else create
-// rate limiting

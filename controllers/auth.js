@@ -17,6 +17,7 @@ exports.signUp = async (req, res, next) => {
     const strongPasswords =
       /^(?=.*\d)(?=.*[!@#$%^&*-?])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
+    // test password
     if (strongPasswords.test(password)) {
       const user = new User({
         name,
@@ -81,6 +82,3 @@ exports.signOut = async (req, res, next) => {
     errorController(err, req, res, next);
   }
 };
-
-// protected routes
-// json web token
