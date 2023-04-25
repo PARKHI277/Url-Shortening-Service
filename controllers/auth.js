@@ -69,6 +69,14 @@ exports.signIn = async (req, res, next) => {
 
 exports.signOut = async (req, res, next) => {
   try {
+    const token = req.headers["authorization"];
+    jwt.sign(token, "", { expiresIn: 1 }, (logout, err) => {
+      if (logout) {
+        res.send({ msg: "You have been Logged Out" });
+      } else {
+        res.send({ msg: "Error" });
+      }
+    });
   } catch (err) {
     errorController(err, req, res, next);
   }
