@@ -15,15 +15,6 @@ app.use(
   })
 );
 
-// client.SET('foo', 'bar');
-// client.GET('foo', (err, value) => {
-//   if (err)
-//   {
-//     console.log(err.message);
-//     console
-//     }
-// })
-
 app.get("/", (req, res) => {
   res.send("Hi, Api is working");
 });
