@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 app.use("/api/v1", authRoutes);
 app.use("/api/v1", urlRoutes);
 
-const port = process.env.port || 3000;
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
   console.log(`Connection succesful at port ${port}`);
